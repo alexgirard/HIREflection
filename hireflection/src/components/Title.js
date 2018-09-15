@@ -1,12 +1,12 @@
 import React from "react";
 
-const Titles = () => (
+const Title = () => (
   <div>
     <div>
-      <b>hire</b>flection
+      <bolded>hire</bolded>flection
     </div>
     <h3 className="">Desc</h3>
   </div>
 );
 
-export default Titles;
+export default Title;
