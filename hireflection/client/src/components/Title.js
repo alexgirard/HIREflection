@@ -7,7 +7,7 @@ import Files from "./Files";
 */
 
 const ranking = [
-  {value: 'one', label: '1' },
+  { value: 'one', label: '1' },
   { value: 'two', label: '2' },
   { value: 'three', label: '3' },
   { value: 'four', label: '4' },
@@ -26,7 +26,10 @@ var files;
 var length;
 
 class Title extends React.Component {
-  state={
+
+
+
+  state = {
     rank: null,
     selectedFile: null,
     files2: [],
@@ -94,6 +97,26 @@ class Title extends React.Component {
       </section>
     );
   }
+
+  componentDidMount() {
+    this.callApi()
+      .then(res => this.setState({
+        response: {
+          express: res.express,
+        }
+      }))
+      .catch(err => console.log(err));
+  }
+
+  callApi = async () => {
+    const response = await fetch('/api/hello');
+    const body = await response.json();
+
+    if (response.status !== 200) throw Error(body.message);
+
+    return body;
+  };
+
 }
 
 export default Title;
