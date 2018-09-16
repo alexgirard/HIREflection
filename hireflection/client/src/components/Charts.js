@@ -13,7 +13,7 @@ class Charts extends React.Component {
         <ResponsiveBar
             data={}
 
-            keys={[x
+            keys={[
                 "1",
                 "2",
                 "3",
