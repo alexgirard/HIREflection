@@ -21,17 +21,17 @@ class Charts3 extends React.Component {
               },
               {
                 "Group1": "Git",
-                "2": 163,
+                "2": 93,
                 "2Color": "hsl(169, 70%, 50%)"
               },
               {
                 "Group1": "Leadership",
-                "3": 85,
+                "3": 72,
                 "2Color": "hsl(294, 70%, 50%)"
               },
               {
                 "Group1": "HTML",
-                "4": 114,
+                "4": 51,
                 "4Color": "hsl(16, 70%, 50%)"
               },
               {

@@ -28,6 +28,7 @@ var boolLow1 = undefined;
 var boolLow2 = undefined;
 var boolHigh1 = undefined;
 var boolHigh2 = undefined;
+var boolSearch = undefined;
 
 class Results extends React.Component {
   state={
@@ -37,6 +38,7 @@ class Results extends React.Component {
     low2: null,
     high1: null,
     high2: null,
+    search: null,
   }
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
@@ -73,6 +75,11 @@ class Results extends React.Component {
     console.log(`boolHigh2:`, boolHigh2);
   }
 
+  handleSearchChange  = ( search ) => {
+    this.setState({ search });
+    if (this.search === 'firebase') boolSearch = true; else boolSearch = false;
+  }
+
   render() {
     const { selectedOption } = this.state;
     const { selectedOption2 } = this.state;
@@ -80,6 +87,7 @@ class Results extends React.Component {
     const { low2 } = this.setState;
     const { high1 } = this.setState;
     const { high2 } = this.setState;
+    const { search } = this.setState;
 
     return (
       <div>
@@ -165,14 +173,19 @@ class Results extends React.Component {
               }
 
               { (type===false) &&
-                <input id="border" type="text"
-                  name="word"
-                  placeholder="Word"
-                />
-
+                <div className="col-sm-12">
+                  <div className="col-sm-3">
+                  </div>
+                  <div className="col-sm-3">
+                    <input id="border" type="text" name="word" placeholder="Word"/>
+                  </div>
+                  <div className="col-sm-3">
+                    <button className="buttonSubmit" onClick={this.handleSearchChange}>Submit</button>
+                  </div>
+                </div>
               }
 
-              { (type===false) &&
+              { (boolSearch===false) && (type===false) &&
                 <div id="chartSingle" className="col-sm-12">
                   <Charts2 />
                 </div>

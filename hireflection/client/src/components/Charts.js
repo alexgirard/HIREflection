@@ -26,12 +26,12 @@ class Charts extends React.Component {
               },
               {
                 "Group2": "Experience",
-                "3": 126,
+                "3": 62,
                 "2Color": "hsl(294, 70%, 50%)"
               },
               {
                 "Group2": "C",
-                "4": 97,
+                "4": 21,
                 "4Color": "hsl(16, 70%, 50%)"
               },
               {
