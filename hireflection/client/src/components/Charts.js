@@ -11,39 +11,9 @@ class Charts extends React.Component {
     return (
       <div id="chart" className="container">
         <ResponsiveBar
-            data={[
-              {
-                "Group": "1",
-                "1": 32,
-                "1Color": "hsl(226, 70%, 50%)"
-              },
-              {
-                "Group": "2",
-                "2": 4,
-                "2Color": "hsl(169, 70%, 50%)"
-              },
-              {
-                "Group": "3",
-                "3": 85,
-                "2Color": "hsl(294, 70%, 50%)"
-              },
-              {
-                "Group": "4",
-                "4": 152,
-                "4Color": "hsl(16, 70%, 50%)"
-              },
-              {
-                "Group": "5",
-                "5": 123,
-                "5Color": "hsl(107, 70%, 50%)"
-              },
-              {
-                "Group": "6",
-                "6": 77,
-                "6Color": "hsl(273, 70%, 50%)"
-              }
-            ]}
-            keys={[
+            data={}
+
+            keys={[x
                 "1",
                 "2",
                 "3",
