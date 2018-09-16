@@ -10,7 +10,17 @@ app.get('/api/hello', (req, res) => {
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
-function pageParse(page) {
+function parser(pageRateArray, dict) {
+  var length = pageRateArray.length;
+  var hashMapRateArray = [];
+  for (int i = 0; i < length; ++i) {
+    var hashMapRate = [pageParse(pageRateArray[i][0], dict), pageRateArray[i][1]];
+    hashMapRateArray.push(hashMapRate);
+  }
+  return hashMapRateArray;
+}
+
+function pageParse(page, dict) {
   var allWords = page.replace(/^\s+|\s+$/g,'').split(/\s+/);
   var length = allWords.length * 1.2;
   var hashMap = [];
@@ -25,6 +35,13 @@ function pageParse(page) {
     var value = wordValue(word, length);
     if (! checkExists(hashMap[value], word)) {
       hashMap[value].push(word);
+      if (dict.has(word)) {
+        var dictVal = dict.get(word);
+        dict.delete(word);
+        dict.set(word, dictVal + 1);
+      } else {
+        dict.set(word, 1);
+      }
     }
   }
   return hashMap;
@@ -40,7 +57,10 @@ function wordValue(word, max) {
   for (int i = 0; i < length; ++i) {
     length += word.charCodeAt(i);
   }
-  return length % max;
+  length = length << 5 + length;
+  length = length % max;
+
+  return Math.abs(length);
 }
 
 function checkExists(wordArray, word) {
