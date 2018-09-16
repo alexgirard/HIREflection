@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-//import logo from './logo.svg';
-
-import './App.css';
+import Title from "./components/Title";
+import Results from "./components/Results";
+import Footer from "./components/Footer";
 
 class App extends Component {
   state = {
@@ -24,17 +24,13 @@ class App extends Component {
     return body;
   };
 
-
-  //<img src={logo} className="App-logo" alt="logo" />
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          
-          
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">{this.state.response}</p>
+  render(){
+    return(
+      <div>
+        <Title />
+        <Results />
+        <Footer />
+        <p>{this.state.response}</p>
       </div>
     );
   }
