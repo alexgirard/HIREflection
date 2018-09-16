@@ -8,28 +8,50 @@ app.get('/api/hello', (req, res) => {
 
   var operations;
   sendHttpPostRequest(`https://vision.googleapis.com/v1/files:asyncBatchAnnotate?key=AIzaSyAMC3nD9pSF1n718XyzpIBfEyprC99Ogx8`, (googleResponse) => {
-    operations = JsonGoogleResponse.name;
     var JsonGoogleResponse = JSON.parse(googleResponse);
+    operations = JsonGoogleResponse["name"];
     operations = operations.slice(11,);
-    res.send({
-      express: 'Hello From Express',
-      operations: operations
-    }
-    );
+
+    var downloadLink;
+    sendHttpGetDownloadRequest('https://www.googleapis.com/storage/v1/b/hireflection/o/Resumes%2Foutput-1-to-1.json',(downloadInfo)=>{
+      var downloadInfoJson =JSON.parse(downloadInfo);
+      downloadLink = downloadInfoJson.mediaLink;
+      
+      /*IBM Watsoon API*/
+
+        var DiscoveryV1 = require('watson-developer-cloud/discovery/v1');
+
+        var discovery = new DiscoveryV1({
+          version: '2017-11-07',
+            username: '0dd90daf-6615-4de7-a52f-d1c35ddc5883',
+            password: 'UuP8rTsKFh2y'
+        });
+        discovery.query({ environment_id: 'f817de97-85dd-4e5a-ab10-f4ab701ebc14', collection_id: '50f83463-32fe-41db-b229-4201c672f5d2', query: 'enriched_text.entities.text:watson' }, (error, data)=> {
+          /*console.log(JSON.stringify(data, null, 2));*/
+          res.send({
+            link: downloadLink,
+            express: 'Hello From Express',
+            operations: operations,
+            watsonData: data
+          });
+        });
+
+
+      
+      
+    });
   }
   );
 
   sendHttpGetRequest('https://vision.googleapis.com/v1/operations/dc9c023628e0f8b7?key=', operations);
 
-  var downloadLink;
-  sendHttpGetDownloadRequest('https://www.googleapis.com/storage/v1/b/hireflection/o/Resumes%2Foutput-1-to-1.json',(downloadInfo)=>{
-    var downloadInfoJson =JSON.parse(downloadInfo);
-    downloadLink = downloadInfoJson.mediaLink;
-    res.send({
-      link: downloadLink
-    }
-    );
-  });
+  
+
+
+
+
+
+
 
 });
 
