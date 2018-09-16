@@ -28,6 +28,7 @@ class Title extends React.Component {
     this.setState({
       selectedFile: event.target.files[0]
     })
+    console.log(event.target.files);
   }
   handleFileUpload = () => {
     const fd = new FormData();
@@ -44,7 +45,7 @@ class Title extends React.Component {
         </h1>
         <h4 className="">DESCRIPTION. THIS IS A DESCRIPTION OF OUR PRODUCT.</h4>
         <br/>
-        <input type="file" onChange={this.handleFileSelector} placeholder="Upload Resume" />
+        <input type="file" onChange={this.handleFileSelector} placeholder="Upload Resume" multiple />
       </section>
     );
   }
