@@ -15,7 +15,24 @@ const ranking = [
   { value: 'ten', label: '10' },
 ]
 
+// // Imports the Google Cloud client library
+// const { Storage } = require('@google-cloud/storage');
+
+// // Creates a client
+// const storage = new Storage();
+
+// /**
+//  * TODO(developer): Uncomment the following lines before running the sample.
+//  */
+// const bucketName = 'hireflection/Resumes';
+// // const filename = 'Local file to upload, e.g. ./local/path/to/file.txt';
+
+
+
 class Title extends React.Component {
+
+
+
   state = {
     rank: null,
     selectedFile: null,
@@ -28,6 +45,18 @@ class Title extends React.Component {
     this.setState({
       selectedFile: event.target.files[0]
     })
+/*
+    // Uploads a local file to the bucket
+    storage
+      .bucket(bucketName)
+      .upload(event.target.files)
+      .then(() => {
+        console.log(`${filename} uploaded to ${bucketName}.`);
+      })
+      .catch(err => {
+        console.error('ERROR:', err);
+      });
+*/
     console.log(event.target.files);
   }
   /*
@@ -53,7 +82,11 @@ class Title extends React.Component {
 
   componentDidMount() {
     this.callApi()
-      .then(res => this.setState({ response: res.express }))
+      .then(res => this.setState({
+        response: {
+          express: res.express,
+        }
+      }))
       .catch(err => console.log(err));
   }
 
