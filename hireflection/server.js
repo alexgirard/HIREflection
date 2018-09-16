@@ -6,17 +6,31 @@ const port = process.env.PORT || 5000;
 
 app.get('/api/hello', (req, res) => {
 
-  //res.render(./src/index.js);
+  var operations;
   sendHttpPostRequest(`https://vision.googleapis.com/v1/files:asyncBatchAnnotate?key=AIzaSyAMC3nD9pSF1n718XyzpIBfEyprC99Ogx8`, (googleResponse) => {
+    operations = JsonGoogleResponse.name;
     var JsonGoogleResponse = JSON.parse(googleResponse);
-    var name = JsonGoogleResponse.name;
-    name = name.slice(11,);
+    operations = operations.slice(11,);
     res.send({
       express: 'Hello From Express',
-      name: name
+      operations: operations
+    }
+    );
+  }
+  );
+
+  sendHttpGetRequest('https://vision.googleapis.com/v1/operations/dc9c023628e0f8b7?key=', operations);
+
+  var downloadLink;
+  sendHttpGetDownloadRequest('https://www.googleapis.com/storage/v1/b/hireflection/o/Resumes%2Foutput-1-to-1.json',(downloadInfo)=>{
+    var downloadInfoJson =JSON.parse(downloadInfo);
+    downloadLink = downloadInfoJson.mediaLink;
+    res.send({
+      link: downloadLink
     }
     );
   });
+
 });
 
 function sendHttpPostRequest(url, callback) {
@@ -27,7 +41,7 @@ function sendHttpPostRequest(url, callback) {
       callback(pdfConvReq.responseText);
   }
  
-  pdfConvReq.open("POST", "https://vision.googleapis.com/v1/files:asyncBatchAnnotate?key=AIzaSyAMC3nD9pSF1n718XyzpIBfEyprC99Ogx8", true); // true for asynchronous 
+  pdfConvReq.open("POST", url, true); // true for asynchronous 
   //pdfConvReq.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   pdfConvReq.send(JSON.stringify(
     {
@@ -57,7 +71,28 @@ function sendHttpPostRequest(url, callback) {
 }
 
 
-function 
+function sendHttpGetRequest(url, key){
+  url=url+key;
+  var pdfConvReq = new XMLHttpRequest();
+  /*pdfConvReq.onreadystatechange = function () {
+    if (pdfConvReq.readyState == 4 && pdfConvReq.status == 200)
+      callback(pdfConvReq.responseText);
+  }*/
+  
+  pdfConvReq.open("GET", url, true); 
+  pdfConvReq.send();
+}
+
+function sendHttpGetDownloadRequest(url, callback){
+  var pdfConvReq = new XMLHttpRequest();
+  pdfConvReq.onreadystatechange = function () {
+    if (pdfConvReq.readyState == 4 && pdfConvReq.status == 200)
+      callback(pdfConvReq.responseText);
+  }
+  
+  pdfConvReq.open("GET", url, true); 
+  pdfConvReq.send();
+}
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
