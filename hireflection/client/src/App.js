@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Title from "./components/Title";
+import Results from "./components/Results";
+import Footer from "./components/Footer";
 
 
 class App extends React.Component {
@@ -27,7 +29,8 @@ class App extends React.Component {
     return(
       <div>
         <Title />
-        <h1>HIIIIIII</h1>
+        <Results />
+        <Footer />
         <p>{this.state.response}</p>
       </div>
     );
