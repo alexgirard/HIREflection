@@ -1,9 +1,10 @@
 import React from "react";
 import Select from 'react-select'
-import Charts from "./Charts";
+import Charts from "./Charts"
+import Charts2 from "./Charts2";
 
 const options = [
-  {value: 'groupCompare', label: 'Group Comparison' },
+  { value: 'groupCompare', label: 'Group Comparison' },
   { value: 'wordDistribution', label: 'Word Distribution' }
 ]
 
@@ -167,11 +168,12 @@ class Results extends React.Component {
                   name="word"
                   placeholder="Word"
                 />
+
               }
 
               { (type===false) &&
                 <div id="chartSingle" className="col-sm-12">
-                  <Charts />
+                  <Charts2 />
                 </div>
               }
 

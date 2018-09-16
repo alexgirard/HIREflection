@@ -6,7 +6,7 @@ import { ResponsiveBar } from '@nivo/bar'
 // website examples showcase many properties, you'll often use just a few of them.
 //{this.props.file}
 
-class Charts extends React.Component {
+class Charts2 extends React.Component {
   render(){
     const data = null;/*require('/data.JSON');*/
     return (
@@ -15,12 +15,12 @@ class Charts extends React.Component {
             data={
             [
               {
-                "Group": "And",
+                "Group": "1",
                 "1": 32,
                 "1Color": "hsl(226, 70%, 50%)"
               },
               {
-                "Group": "Or",
+                "Group": "2",
                 "2": 10,
                 "2Color": "hsl(169, 70%, 50%)"
               },
@@ -43,6 +43,26 @@ class Charts extends React.Component {
                 "Group": "6",
                 "6": 77,
                 "6Color": "hsl(273, 70%, 50%)"
+              },
+              {
+                "Group": "7",
+                "2": 99,
+                "2Color": "hsl(169, 70%, 50%)"
+              },
+              {
+                "Group": "8",
+                "3": 62,
+                "2Color": "hsl(294, 70%, 50%)"
+              },
+              {
+                "Group": "9",
+                "4": 134,
+                "4Color": "hsl(16, 70%, 50%)"
+              },
+              {
+                "Group": "10",
+                "5": 89,
+                "5Color": "hsl(107, 70%, 50%)"
               }
             ]}
             keys={[
@@ -131,4 +151,4 @@ class Charts extends React.Component {
   }
 }
 
-export default Charts;
+export default Charts2;

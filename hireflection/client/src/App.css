@@ -43,8 +43,8 @@ input[type="file"] {
   padding: 8px 20px;
   margin: 0 2px;
   border-radius: 3px;
-  width: 350px !important;
-  line-height: 0.5;
+  width: 520px !important;
+  line-height: 0.2;
   font-weight: lighter;
   letter-spacing: 1px;
   font-size: 20px !important;
@@ -53,6 +53,23 @@ input[type="file"] {
   font-weight: 400;
   margin: 0 auto !important;
   float: left !important;
+}
+
+button {
+  border: 0;
+  margin: 30px 30px;
+  border-radius: 3px;
+  width: 50px !important;
+  height: 50px;
+  line-height: 0.2;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  font-size: 20px !important;
+  background-color: rgba(26, 163, 255, 0.7);
+  color: white;
+  font-weight: 400;
+  margin: 100 auto !important;
+  float: right !important;
 }
 
 input[type="file"]:active {
@@ -93,7 +110,7 @@ section {
 #hero {
   background-color: white;
   width: 100vw;
-  height: 100vh;
+  height: 85vh;
   display: flex;
   justify-content: center;
   padding-top: 0;

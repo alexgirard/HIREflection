@@ -58,7 +58,7 @@ class Title extends React.Component {
     this.setState({value: event.target.value});
   }
 
-  handleChange = (rank) => {
+  handleRank = (rank) => {
     this.setState({ rank });
     console.log(`rank:`, rank);
   }
@@ -69,11 +69,11 @@ class Title extends React.Component {
     return (
       <section id="hero">
         <h1>
-          <bolded>hire</bolded>flection
+          <bolded>Hire</bolded>flection
         </h1>
-        <h4 className="">DESCRIPTION. THIS IS A DESCRIPTION OF OUR PRODUCT.</h4>
+        <h4 className="">BUSINESS INTELLIGENCE SOLUTIONS FOR NEXT GENERATION OF HR.</h4>
         <br/>
-        <input type="file" onChange={this.handleFileSelector} placeholder="Upload Resume" />
+        <input type="file" align="center" onChange={this.handleFileSelector} placeholder="Upload Resume" />
         <br/>
 
         <div className="col-sm-12">
@@ -81,14 +81,10 @@ class Title extends React.Component {
           </div>
           <div className="col-sm-4">
             <Select
-              isMulti
-              name="rank"
-              placeholder="Ranking"
-              className="basic-multi-select"
-              classNamePrefix="select"
               value={rank}
-              options={ranking}
+              placeholder="Ranking"
               onChange={this.handleRank}
+              options={ranking}
             />
           </div>
           <div className="col-sm-4">
@@ -103,3 +99,15 @@ class Title extends React.Component {
 export default Title;
 
 /*<Files selectedFile= {this.state.selectedFile} />*/
+/*
+<Select
+  isMulti
+  name="rank"
+  placeholder="Ranking"
+  className="basic-multi-select"
+  classNamePrefix="select"
+  value={rank}
+  options={ranking}
+  onChange={this.handleRank}
+/>
+*/
