@@ -13,7 +13,7 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 function parser(pageRateArray, dict) {
   var length = pageRateArray.length;
   var hashMapRateArray = [];
-  for (int i = 0; i < length; ++i) {
+  for (var i = 0; i < length; ++i) {
     var hashMapRate = [pageParse(pageRateArray[i][0], dict), pageRateArray[i][1]];
     hashMapRateArray.push(hashMapRate);
   }
@@ -26,11 +26,11 @@ function pageParse(page, dict) {
   var hashMap = [];
   var numWords = allWords.length;
 
-  for (int i = 0; i < length; ++i) {
+  for (var i = 0; i < length; ++i) {
     hashMap[i] = [];
   }
 
-  for (int i = 0; i < numWords; ++i) {
+  for (var i = 0; i < numWords; ++i) {
     var word = removeSpecialChars(page[i]);
     var value = wordValue(word, length);
     if (! checkExists(hashMap[value], word)) {
@@ -54,7 +54,7 @@ function removeSpecialChars(word) {
 function wordValue(word, max) {
   var total = 0;
   var length = word.length;
-  for (int i = 0; i < length; ++i) {
+  for (var i = 0; i < length; ++i) {
     length += word.charCodeAt(i);
   }
   length = length << 5 + length;
@@ -65,7 +65,7 @@ function wordValue(word, max) {
 
 function checkExists(wordArray, word) {
   var length = wordArray.length;
-  for (int i = 0; i < length; ++i) {
+  for (var i = 0; i < length; ++i) {
     if (wordArray[i] === word) {
       return true;
     }

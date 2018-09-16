@@ -3,7 +3,7 @@ import Select from 'react-select'
 import axios from 'axios';
 
 const ranking = [
-  {value: 'one', label: '1' },
+  { value: 'one', label: '1' },
   { value: 'two', label: '2' },
   { value: 'three', label: '3' },
   { value: 'four', label: '4' },
@@ -16,7 +16,7 @@ const ranking = [
 ]
 
 class Title extends React.Component {
-  state={
+  state = {
     rank: null,
     selectedFile: null,
   }
@@ -30,12 +30,13 @@ class Title extends React.Component {
     })
     console.log(event.target.files);
   }
+  /*
   handleFileUpload = () => {
     const fd = new FormData();
     fd.append('pdf', this.state.selectedFile, this.state.selectedFile.name);
-    /*axios.post(/*url, fd);*/
+    //axios.post(/*url, fd);
   }
-
+*/
   render() {
     const { rank } = this.state;
     return (
@@ -44,11 +45,27 @@ class Title extends React.Component {
           <bolded>hire</bolded>flection
         </h1>
         <h4 className="">DESCRIPTION. THIS IS A DESCRIPTION OF OUR PRODUCT.</h4>
-        <br/>
+        <br />
         <input type="file" onChange={this.handleFileSelector} placeholder="Upload Resume" multiple />
       </section>
     );
   }
+
+  componentDidMount() {
+    this.callApi()
+      .then(res => this.setState({ response: res.express }))
+      .catch(err => console.log(err));
+  }
+
+  callApi = async () => {
+    const response = await fetch('/api/hello');
+    const body = await response.json();
+
+    if (response.status !== 200) throw Error(body.message);
+
+    return body;
+  };
+
 }
 
 export default Title;

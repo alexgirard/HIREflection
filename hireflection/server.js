@@ -8,7 +8,7 @@ app.get('/api/hello', (req, res) => {
 
   var operations;
   sendHttpPostRequest(`https://vision.googleapis.com/v1/files:asyncBatchAnnotate?key=AIzaSyAMC3nD9pSF1n718XyzpIBfEyprC99Ogx8`, (googleResponse) => {
-    operations = JsonGoogleResponse.name;
+    operations = JsonGoogleResponse['name'];
     var JsonGoogleResponse = JSON.parse(googleResponse);
     operations = operations.slice(11,);
     res.send({
@@ -24,7 +24,7 @@ app.get('/api/hello', (req, res) => {
   var downloadLink;
   sendHttpGetDownloadRequest('https://www.googleapis.com/storage/v1/b/hireflection/o/Resumes%2Foutput-1-to-1.json',(downloadInfo)=>{
     var downloadInfoJson =JSON.parse(downloadInfo);
-    downloadLink = downloadInfoJson.mediaLink;
+    downloadLink = downloadInfoJson['mediaLink'];
     res.send({
       link: downloadLink
     }
@@ -95,6 +95,73 @@ function sendHttpGetDownloadRequest(url, callback){
 }
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
+/*
+function parser(pageRateArray, dict) {
+  var length = pageRateArray.length;
+  var hashMapRateArray = [];
+  for (var i = 0; i < length; ++i) {
+    var hashMapRate = [pageParse(pageRateArray[i][0], dict), pageRateArray[i][1]];
+    hashMapRateArray.push(hashMapRate);
+  }
+  return hashMapRateArray;
+}
+
+function pageParse(page, dict) {
+  var allWords = page.replace(/^\s+|\s+$/g,'').split(/\s+/);
+  var length = allWords.length * 1.2;
+  var hashMap = [];
+  var numWords = allWords.length;
+
+  for (var i = 0; i < length; ++i) {
+    hashMap[i] = [];
+  }
+
+  for (var i = 0; i < numWords; ++i) {
+    var word = removeSpecialChars(page[i]);
+    var value = wordValue(word, length);
+    if (! checkExists(hashMap[value], word)) {
+      hashMap[value].push(word);
+      if (dict.has(word)) {
+        var dictVal = dict.get(word);
+        dict.delete(word);
+        dict.set(word, dictVal + 1);
+      } else {
+        dict.set(word, 1);
+      }
+    }
+  }
+  return hashMap;
+}
+
+function removeSpecialChars(word) {
+  return word.replace(/\W/g, '');
+}
+
+function wordValue(word, max) {
+  var total = 0;
+  var length = word.length;
+  for (var i = 0; i < length; ++i) {
+    length += word.charCodeAt(i);
+  }
+  length = length << 5 + length;
+  length = length % max;
+
+  return Math.abs(length);
+}
+
+function checkExists(wordArray, word) {
+  var length = wordArray.length;
+  for (var i = 0; i < length; ++i) {
+    if (wordArray[i] === word) {
+      return true;
+    }
+  }
+  return false;
+}F
+*/
+
+
 
 /*const express = require('express');
 
