@@ -4,7 +4,7 @@ import Title from "./components/Title";
 import Results from "./components/Results";
 import Footer from "./components/Footer";
 
-class App extends Component {
+class App extends React.Component {
   state = {
     response: ''
   };
