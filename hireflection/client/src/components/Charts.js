@@ -15,34 +15,29 @@ class Charts extends React.Component {
             data={
             [
               {
-                "Group": "And",
-                "1": 32,
+                "Group2": "Communication",
+                "1": 78,
                 "1Color": "hsl(226, 70%, 50%)"
               },
               {
-                "Group": "Or",
-                "2": 10,
+                "Group2": "Java",
+                "2": 42,
                 "2Color": "hsl(169, 70%, 50%)"
               },
               {
-                "Group": "3",
-                "3": 85,
+                "Group2": "Experience",
+                "3": 126,
                 "2Color": "hsl(294, 70%, 50%)"
               },
               {
-                "Group": "4",
-                "4": 152,
+                "Group2": "C",
+                "4": 97,
                 "4Color": "hsl(16, 70%, 50%)"
               },
               {
-                "Group": "5",
-                "5": 123,
+                "Group2": "Mentored",
+                "5": 63,
                 "5Color": "hsl(107, 70%, 50%)"
-              },
-              {
-                "Group": "6",
-                "6": 77,
-                "6Color": "hsl(273, 70%, 50%)"
               }
             ]}
             keys={[
@@ -50,10 +45,9 @@ class Charts extends React.Component {
                 "2",
                 "3",
                 "4",
-                "5",
-                "6"
+                "5"
             ]}
-            indexBy="Group"
+            indexBy="Group2"
             margin={{
                 "top": 50,
                 "right": 130,
@@ -104,7 +98,7 @@ class Charts extends React.Component {
                 "tickSize": 5,
                 "tickPadding": 5,
                 "tickRotation": 0,
-                "legend": "Group",
+                "legend": "Group2",
                 "legendPosition": "middle",
                 "legendOffset": 36
             }}

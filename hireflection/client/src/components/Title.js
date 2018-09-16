@@ -74,7 +74,7 @@ class Title extends React.Component {
         <h1>
           <bolded>Hire</bolded>flection
         </h1>
-        <h4 className="">BUSINESS INTELLIGENCE SOLUTIONS FOR NEXT GENERATION OF HR.</h4>
+        <h4 className="">BUSINESS INTELLIGENCE SOLUTIONS FOR THE NEXT GENERATION OF HR.</h4>
         <br/>
         <input type="file" align="center" onChange={this.handleFileSelector} placeholder="Upload Resume" />
         <br/>

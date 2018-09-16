@@ -31,7 +31,7 @@ class App extends React.Component {
     return(
       <div>
         <Title />
-        <button onClick={() => scrollToComponent(this.Blue, {  align: 'middle', duration: 1500, ease:'inCirc'})}>\/</button>
+        <button onClick={() => scrollToComponent(this.Blue, {  align: 'middle', duration: 1000, ease:'inCirc'})}>\/</button>
         <Results />
         <div className='blue' ref={(section) => { this.Blue = section; }}></div>
         <Footer />

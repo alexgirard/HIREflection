@@ -2,6 +2,7 @@ import React from "react";
 import Select from 'react-select'
 import Charts from "./Charts"
 import Charts2 from "./Charts2";
+import Charts3 from "./Charts3";
 
 const options = [
   { value: 'groupCompare', label: 'Group Comparison' },
@@ -181,7 +182,7 @@ class Results extends React.Component {
               { boolLow1 && boolLow2 && boolHigh1 && boolHigh2 &&
                 <div id="chartDouble" className="col-sm-12">
                   <div className="col-sm-6">
-                    <Charts />
+                    <Charts3 />
                   </div>
                   <div className="col-sm-6">
                     <Charts />

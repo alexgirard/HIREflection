@@ -6,7 +6,7 @@ import { ResponsiveBar } from '@nivo/bar'
 // website examples showcase many properties, you'll often use just a few of them.
 //{this.props.file}
 
-class Charts2 extends React.Component {
+class Charts3 extends React.Component {
   render(){
     const data = null;/*require('/data.JSON');*/
     return (
@@ -15,53 +15,28 @@ class Charts2 extends React.Component {
             data={
             [
               {
-                "Group": "1",
+                "Group1": "PHP",
                 "1": 32,
                 "1Color": "hsl(226, 70%, 50%)"
               },
               {
-                "Group": "2",
-                "2": 10,
+                "Group1": "Git",
+                "2": 163,
                 "2Color": "hsl(169, 70%, 50%)"
               },
               {
-                "Group": "3",
+                "Group1": "Leadership",
                 "3": 85,
                 "2Color": "hsl(294, 70%, 50%)"
               },
               {
-                "Group": "4",
-                "4": 152,
+                "Group1": "HTML",
+                "4": 114,
                 "4Color": "hsl(16, 70%, 50%)"
               },
               {
-                "Group": "5",
-                "5": 123,
-                "5Color": "hsl(107, 70%, 50%)"
-              },
-              {
-                "Group": "6",
-                "6": 74,
-                "6Color": "hsl(273, 70%, 50%)"
-              },
-              {
-                "Group": "7",
-                "2": 99,
-                "2Color": "hsl(169, 70%, 50%)"
-              },
-              {
-                "Group": "8",
-                "3": 62,
-                "2Color": "hsl(294, 70%, 50%)"
-              },
-              {
-                "Group": "9",
-                "4": 134,
-                "4Color": "hsl(16, 70%, 50%)"
-              },
-              {
-                "Group": "10",
-                "5": 89,
+                "Group1": "Business",
+                "5": 25,
                 "5Color": "hsl(107, 70%, 50%)"
               }
             ]}
@@ -70,14 +45,9 @@ class Charts2 extends React.Component {
                 "2",
                 "3",
                 "4",
-                "5",
-                "6",
-                "7",
-                "8",
-                "9",
-                "10"
+                "5"
             ]}
-            indexBy="Group"
+            indexBy="Group1"
             margin={{
                 "top": 50,
                 "right": 130,
@@ -128,7 +98,7 @@ class Charts2 extends React.Component {
                 "tickSize": 5,
                 "tickPadding": 5,
                 "tickRotation": 0,
-                "legend": "Group",
+                "legend": "Group1",
                 "legendPosition": "middle",
                 "legendOffset": 36
             }}
@@ -155,4 +125,4 @@ class Charts2 extends React.Component {
   }
 }
 
-export default Charts2;
+export default Charts3;
