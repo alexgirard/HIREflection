@@ -6,7 +6,7 @@ import { ResponsiveBar } from '@nivo/bar'
 // website examples showcase many properties, you'll often use just a few of them.
 //{this.props.file}
 
-class Charts extends React.Component {
+class Charts3 extends React.Component {
   render(){
     const data = null;/*require('/data.JSON');*/
     return (
@@ -15,28 +15,28 @@ class Charts extends React.Component {
             data={
             [
               {
-                "Group2": "Communication",
-                "1": 78,
+                "Group1": "PHP",
+                "1": 32,
                 "1Color": "hsl(226, 70%, 50%)"
               },
               {
-                "Group2": "Java",
-                "2": 42,
+                "Group1": "Git",
+                "2": 163,
                 "2Color": "hsl(169, 70%, 50%)"
               },
               {
-                "Group2": "Experience",
-                "3": 126,
+                "Group1": "Leadership",
+                "3": 85,
                 "2Color": "hsl(294, 70%, 50%)"
               },
               {
-                "Group2": "C",
-                "4": 97,
+                "Group1": "HTML",
+                "4": 114,
                 "4Color": "hsl(16, 70%, 50%)"
               },
               {
-                "Group2": "Mentored",
-                "5": 63,
+                "Group1": "Business",
+                "5": 25,
                 "5Color": "hsl(107, 70%, 50%)"
               }
             ]}
@@ -47,7 +47,7 @@ class Charts extends React.Component {
                 "4",
                 "5"
             ]}
-            indexBy="Group2"
+            indexBy="Group1"
             margin={{
                 "top": 50,
                 "right": 130,
@@ -98,7 +98,7 @@ class Charts extends React.Component {
                 "tickSize": 5,
                 "tickPadding": 5,
                 "tickRotation": 0,
-                "legend": "Group2",
+                "legend": "Group1",
                 "legendPosition": "middle",
                 "legendOffset": 36
             }}
@@ -125,4 +125,4 @@ class Charts extends React.Component {
   }
 }
 
-export default Charts;
+export default Charts3;
