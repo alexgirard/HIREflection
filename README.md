@@ -1,5 +1,5 @@
 # HIREflection
-Is a project built in 33 hours at Hack the North 2018, by Angelo Lao
+Is a project built in 33 hours at Hack the North 2018, by Alexandra Girard, Angelo Lao, Yutian Lin, and Shubhangi Raj.
 
 # Built With
 * React.js
